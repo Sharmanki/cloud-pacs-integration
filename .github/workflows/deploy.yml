@@ -1,0 +1,28 @@
+name: Build and Deploy HL7-FHIR Transformer
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build Docker image
+        run: docker build -t an397729/hl7-fhir-transformer .
+
+      - name: Run FHIR transformer test
+        run: docker run an397729/hl7-fhir-transformer
+
+      - name: Push to Docker Hub
+        run: docker push an397729/hl7-fhir-transformer
