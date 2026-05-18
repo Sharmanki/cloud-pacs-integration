@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: fhir-api
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: fhir-api
+  template:
+    metadata:
+      labels:
+        app: fhir-api
+    spec:
+      containers:
+      - name: fhir-api
+        image: hl7-fhir-api:latest
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 8000
