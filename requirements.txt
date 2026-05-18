@@ -1,2 +1,5 @@
 hl7apy
 requests
+fastapi
+uvicorn
+pika
