@@ -1,43 +1,38 @@
 # producer.py
-# Simulates a hospital sending HL7 messages to a queue
-# Like a HIS/RIS firing ADT messages all day long
-
 import pika
-import json
 import time
+import random
 
-# HL7 messages to send (simulating 3 hospital events)
+# Generate unique run ID so every run creates fresh patients
+run_id = random.randint(1000, 9999)
+
 hl7_messages = [
-    "MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG001|P|2.5\rPID|1||12345^^^MRN||KUMAR^ANKIT||19900315|M",
-    "MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG002|P|2.5\rPID|1||67890^^^MRN||SMITH^JOHN||19850520|M",
-    "MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG003|P|2.5\rPID|1||11111^^^MRN||JOHNSON^SARA||19920710|F"
+    f"MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG001|P|2.5\rPID|1||{run_id}1^^^MRN||KUMAR^ANKIT{run_id}||19900315|M",
+    f"MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG002|P|2.5\rPID|1||{run_id}2^^^MRN||SMITH^JOHN{run_id}||19850520|M",
+    f"MSH|^~\\&|HIS|TORONTO_GEN|FHIR|TEST|20240415||ADT^A01|MSG003|P|2.5\rPID|1||{run_id}3^^^MRN||JOHNSON^SARA{run_id}||19920710|F"
 ]
 
-# Connect to RabbitMQ
-print("Connecting to RabbitMQ...")
+print(f"Run ID: {run_id} — sending unique patients this session")
+
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host="localhost")
 )
 channel = connection.channel()
-
-# Create the queue if it doesn't exist
-# durable=True means queue survives RabbitMQ restart
 channel.queue_declare(queue="hl7_queue", durable=True)
 
 print("Connected! Sending HL7 messages...\n")
 
-# Send each message to the queue
 for i, message in enumerate(hl7_messages):
     channel.basic_publish(
         exchange="",
         routing_key="hl7_queue",
         body=message,
         properties=pika.BasicProperties(
-            delivery_mode=2  # Make message persistent
+            delivery_mode=2
         )
     )
-    print(f"Sent message {i+1}: {message[45:65]}...")
-    time.sleep(1)  # 1 second between messages
+    print(f"Sent message {i+1} | Run ID: {run_id}")
+    time.sleep(1)
 
 print("\nAll messages sent to queue!")
 connection.close()

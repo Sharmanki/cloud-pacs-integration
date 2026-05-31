@@ -1,0 +1,175 @@
+2026-05-17 23:15:58,772 - Processed: 12345 | ANKIT KUMAR | FHIR ID: None | Status: 412
+2026-05-17 23:15:59,782 - Processed: 67890 | JOHN SMITH | FHIR ID: None | Status: 412
+2026-05-17 23:16:00,788 - Processed: 11111 | SARA JOHNSON | FHIR ID: None | Status: 412
+2026-05-17 23:18:57,785 - INFO - HL7 to FHIR Consumer Engine starting...
+2026-05-17 23:18:57,785 - INFO - Connecting to RabbitMQ on localhost...
+2026-05-17 23:18:57,801 - INFO - Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
+2026-05-17 23:18:57,801 - INFO - Socket connected: <socket.socket fd=624, family=23, type=1, proto=6, laddr=('::1', 53721, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:18:57,801 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2026-05-17 23:18:57,849 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:18:57,849 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:18:57,849 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:18:57,849 - INFO - Created channel=1
+2026-05-17 23:18:57,865 - INFO - Consumer ready — waiting for HL7 messages...
+2026-05-17 23:18:57,865 - INFO - Press Ctrl+C to stop
+
+2026-05-17 23:19:24,687 - INFO - New message received from queue
+2026-05-17 23:19:24,703 - INFO - Parsed: MRN=12345 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:19:25,197 - ERROR - FHIR server error: MRN=12345 | Status=412
+2026-05-17 23:19:25,197 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:19:25,659 - INFO - New message received from queue
+2026-05-17 23:19:25,659 - INFO - Parsed: MRN=67890 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:19:26,214 - ERROR - FHIR server error: MRN=67890 | Status=412
+2026-05-17 23:19:26,214 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:19:26,659 - INFO - New message received from queue
+2026-05-17 23:19:26,659 - INFO - Parsed: MRN=11111 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:19:27,216 - ERROR - FHIR server error: MRN=11111 | Status=412
+2026-05-17 23:19:27,216 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:20:35,549 - INFO - New message received from queue
+2026-05-17 23:20:35,549 - INFO - Parsed: MRN=99001 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:20:36,247 - INFO - SUCCESS: MRN=99001 | FHIR ID=132068653 | Status=201
+2026-05-17 23:20:36,247 - INFO - Session stats: Processed=1 | Failed=3
+2026-05-17 23:20:36,247 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:20:36,509 - INFO - New message received from queue
+2026-05-17 23:20:36,509 - INFO - Parsed: MRN=99002 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:20:37,202 - INFO - SUCCESS: MRN=99002 | FHIR ID=132068654 | Status=201
+2026-05-17 23:20:37,202 - INFO - Session stats: Processed=2 | Failed=3
+2026-05-17 23:20:37,202 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:20:37,510 - INFO - New message received from queue
+2026-05-17 23:20:37,510 - INFO - Parsed: MRN=99003 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:20:38,190 - INFO - SUCCESS: MRN=99003 | FHIR ID=132068655 | Status=201
+2026-05-17 23:20:38,190 - INFO - Session stats: Processed=3 | Failed=3
+2026-05-17 23:20:38,190 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:24:12,872 - INFO - Consumer stopped by user
+2026-05-17 23:24:12,872 - INFO - Final stats: Processed=3 | Failed=3
+2026-05-17 23:24:12,872 - INFO - Closing connection (200): Normal shutdown
+2026-05-17 23:24:12,878 - INFO - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2026-05-17 23:24:12,883 - INFO - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x0000014F1C2441D0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2026-05-17 23:24:12,883 - INFO - Closing connection (200): 'Normal shutdown'
+2026-05-17 23:24:12,883 - INFO - Aborting transport connection: state=1; <socket.socket fd=624, family=23, type=1, proto=6, laddr=('::1', 53721, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:24:12,883 - INFO - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=624, family=23, type=1, proto=6, laddr=('::1', 53721, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:24:12,883 - INFO - Deactivating transport: state=1; <socket.socket fd=624, family=23, type=1, proto=6, laddr=('::1', 53721, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:24:12,883 - INFO - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-17 23:24:12,883 - INFO - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-17 23:24:12,883 - INFO - Closing transport socket and unlinking: state=3; <socket.socket fd=624, family=23, type=1, proto=6, laddr=('::1', 53721, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:24:12,883 - INFO - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2026-05-17 23:24:31,649 - INFO - HL7 to FHIR Consumer Engine starting...
+2026-05-17 23:24:31,649 - INFO - Connecting to RabbitMQ on localhost...
+2026-05-17 23:24:31,656 - INFO - Pika version 1.4.0 connecting to ('::1', 5672, 0, 0)
+2026-05-17 23:24:31,656 - INFO - Socket connected: <socket.socket fd=764, family=23, type=1, proto=6, laddr=('::1', 48484, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:24:31,656 - INFO - Streaming transport linked up: (<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0>, _StreamingProtocolShim: <SelectConnection PROTOCOL transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>).
+2026-05-17 23:24:31,710 - INFO - AMQPConnector - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:24:31,711 - INFO - AMQPConnectionWorkflow - reporting success: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:24:31,711 - INFO - Connection workflow succeeded: <SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>
+2026-05-17 23:24:31,711 - INFO - Created channel=1
+2026-05-17 23:24:31,717 - INFO - Consumer ready — waiting for HL7 messages...
+2026-05-17 23:24:31,717 - INFO - Press Ctrl+C to stop
+
+2026-05-17 23:25:36,681 - INFO - Consumer stopped by user
+2026-05-17 23:25:36,681 - INFO - Final stats: Processed=0 | Failed=0
+2026-05-17 23:25:36,681 - INFO - Closing connection (200): Normal shutdown
+2026-05-17 23:25:36,681 - INFO - Closing channel (200): 'Normal shutdown' on <Channel number=1 OPEN conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2026-05-17 23:25:36,681 - INFO - Received <Channel.CloseOk> on <Channel number=1 CLOSING conn=<SelectConnection OPEN transport=<pika.adapters.utils.io_services_utils._AsyncPlaintextTransport object at 0x000001B9B36743B0> params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>>
+2026-05-17 23:25:36,681 - INFO - Closing connection (200): 'Normal shutdown'
+2026-05-17 23:25:36,681 - INFO - Aborting transport connection: state=1; <socket.socket fd=764, family=23, type=1, proto=6, laddr=('::1', 48484, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:25:36,681 - INFO - _AsyncTransportBase._initate_abort(): Initiating abrupt asynchronous transport shutdown: state=1; error=None; <socket.socket fd=764, family=23, type=1, proto=6, laddr=('::1', 48484, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:25:36,681 - INFO - Deactivating transport: state=1; <socket.socket fd=764, family=23, type=1, proto=6, laddr=('::1', 48484, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:25:36,681 - INFO - AMQP stack terminated, failed to connect, or aborted: opened=True, error-arg=None; pending-error=ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-17 23:25:36,681 - INFO - Stack terminated due to ConnectionClosedByClient: (200) 'Normal shutdown'
+2026-05-17 23:25:36,681 - INFO - Closing transport socket and unlinking: state=3; <socket.socket fd=764, family=23, type=1, proto=6, laddr=('::1', 48484, 0, 0), raddr=('::1', 5672, 0, 0)>
+2026-05-17 23:25:36,681 - INFO - User-initiated close: result=BlockingConnection__OnClosedArgs(connection=<SelectConnection CLOSED transport=None params=<ConnectionParameters host=localhost port=5672 virtual_host=/ ssl=False>>, error=ConnectionClosedByClient: (200) 'Normal shutdown')
+2026-05-17 23:25:38,383 - INFO - HL7 to FHIR Consumer Engine starting...
+2026-05-17 23:25:38,383 - INFO - Connecting to RabbitMQ on localhost...
+2026-05-17 23:25:38,450 - INFO - Consumer ready — waiting for HL7 messages...
+2026-05-17 23:25:38,450 - INFO - Press Ctrl+C to stop
+
+2026-05-17 23:25:57,585 - INFO - New message received from queue
+2026-05-17 23:25:57,585 - INFO - Parsed: MRN=99001 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:25:58,110 - ERROR - FHIR server error: MRN=99001 | Status=412
+2026-05-17 23:25:58,110 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:25:58,544 - INFO - New message received from queue
+2026-05-17 23:25:58,544 - INFO - Parsed: MRN=99002 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:25:59,115 - ERROR - FHIR server error: MRN=99002 | Status=412
+2026-05-17 23:25:59,115 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:25:59,538 - INFO - New message received from queue
+2026-05-17 23:25:59,547 - INFO - Parsed: MRN=99003 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:26:00,119 - ERROR - FHIR server error: MRN=99003 | Status=412
+2026-05-17 23:26:00,119 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:26:02,986 - INFO - New message received from queue
+2026-05-17 23:26:03,002 - INFO - Parsed: MRN=99001 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:26:03,496 - ERROR - FHIR server error: MRN=99001 | Status=412
+2026-05-17 23:26:03,496 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:26:03,959 - INFO - New message received from queue
+2026-05-17 23:26:03,959 - INFO - Parsed: MRN=99002 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:26:04,548 - ERROR - FHIR server error: MRN=99002 | Status=412
+2026-05-17 23:26:04,548 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:26:04,963 - INFO - New message received from queue
+2026-05-17 23:26:04,963 - INFO - Parsed: MRN=99003 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:26:05,555 - ERROR - FHIR server error: MRN=99003 | Status=412
+2026-05-17 23:26:05,555 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:28:48,415 - INFO - Consumer stopped by user
+2026-05-17 23:28:48,415 - INFO - Final stats: Processed=0 | Failed=6
+2026-05-17 23:28:52,957 - INFO - HL7 to FHIR Consumer Engine starting...
+2026-05-17 23:28:52,957 - INFO - Connecting to RabbitMQ on localhost...
+2026-05-17 23:28:53,020 - INFO - Consumer ready — waiting for HL7 messages...
+2026-05-17 23:28:53,020 - INFO - Press Ctrl+C to stop
+
+2026-05-17 23:28:58,142 - INFO - New message received from queue
+2026-05-17 23:28:58,142 - INFO - Parsed: MRN=99001 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:28:58,683 - INFO - SUCCESS: MRN=99001 | FHIR ID=132068664 | Status=201
+2026-05-17 23:28:58,683 - INFO - Session stats: Processed=1 | Failed=0
+2026-05-17 23:28:58,699 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:28:59,104 - INFO - New message received from queue
+2026-05-17 23:28:59,104 - INFO - Parsed: MRN=99002 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:28:59,683 - INFO - SUCCESS: MRN=99002 | FHIR ID=132068665 | Status=201
+2026-05-17 23:28:59,683 - INFO - Session stats: Processed=2 | Failed=0
+2026-05-17 23:28:59,683 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:29:00,105 - INFO - New message received from queue
+2026-05-17 23:29:00,105 - INFO - Parsed: MRN=99003 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:29:00,684 - INFO - SUCCESS: MRN=99003 | FHIR ID=132068666 | Status=201
+2026-05-17 23:29:00,684 - INFO - Session stats: Processed=3 | Failed=0
+2026-05-17 23:29:00,699 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:29:03,772 - INFO - New message received from queue
+2026-05-17 23:29:03,772 - INFO - Parsed: MRN=99001 | ANKIT KUMAR | male | DOB=1990-03-15
+2026-05-17 23:29:04,281 - ERROR - FHIR server error: MRN=99001 | Status=412
+2026-05-17 23:29:04,281 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:29:04,729 - INFO - New message received from queue
+2026-05-17 23:29:04,729 - INFO - Parsed: MRN=99002 | JOHN SMITH | male | DOB=1985-05-20
+2026-05-17 23:29:05,283 - ERROR - FHIR server error: MRN=99002 | Status=412
+2026-05-17 23:29:05,283 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:29:05,732 - INFO - New message received from queue
+2026-05-17 23:29:05,732 - INFO - Parsed: MRN=99003 | SARA JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:29:06,284 - ERROR - FHIR server error: MRN=99003 | Status=412
+2026-05-17 23:29:06,284 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:31:08,916 - INFO - New message received from queue
+2026-05-17 23:31:08,916 - INFO - Parsed: MRN=44371 | ANKIT4437 KUMAR | male | DOB=1990-03-15
+2026-05-17 23:31:09,458 - INFO - SUCCESS: MRN=44371 | FHIR ID=132068670 | Status=201
+2026-05-17 23:31:09,458 - INFO - Session stats: Processed=4 | Failed=3
+2026-05-17 23:31:09,458 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:31:09,876 - INFO - New message received from queue
+2026-05-17 23:31:09,876 - INFO - Parsed: MRN=44372 | JOHN4437 SMITH | male | DOB=1985-05-20
+2026-05-17 23:31:10,445 - INFO - SUCCESS: MRN=44372 | FHIR ID=132068671 | Status=201
+2026-05-17 23:31:10,445 - INFO - Session stats: Processed=5 | Failed=3
+2026-05-17 23:31:10,445 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:31:10,879 - INFO - New message received from queue
+2026-05-17 23:31:10,879 - INFO - Parsed: MRN=44373 | SARA4437 JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:31:11,437 - INFO - SUCCESS: MRN=44373 | FHIR ID=132068672 | Status=201
+2026-05-17 23:31:11,437 - INFO - Session stats: Processed=6 | Failed=3
+2026-05-17 23:31:11,442 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:32:20,681 - INFO - New message received from queue
+2026-05-17 23:32:20,681 - INFO - Parsed: MRN=85741 | ANKIT8574 KUMAR | male | DOB=1990-03-15
+2026-05-17 23:32:21,318 - INFO - SUCCESS: MRN=85741 | FHIR ID=132068674 | Status=201
+2026-05-17 23:32:21,318 - INFO - Session stats: Processed=7 | Failed=3
+2026-05-17 23:32:21,318 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:32:21,653 - INFO - New message received from queue
+2026-05-17 23:32:21,653 - INFO - Parsed: MRN=85742 | JOHN8574 SMITH | male | DOB=1985-05-20
+2026-05-17 23:32:22,244 - INFO - SUCCESS: MRN=85742 | FHIR ID=132068675 | Status=201
+2026-05-17 23:32:22,244 - INFO - Session stats: Processed=8 | Failed=3
+2026-05-17 23:32:22,244 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:32:22,648 - INFO - New message received from queue
+2026-05-17 23:32:22,648 - INFO - Parsed: MRN=85743 | SARA8574 JOHNSON | female | DOB=1992-07-10
+2026-05-17 23:32:23,250 - INFO - SUCCESS: MRN=85743 | FHIR ID=132068676 | Status=201
+2026-05-17 23:32:23,250 - INFO - Session stats: Processed=9 | Failed=3
+2026-05-17 23:32:23,260 - INFO - Message acknowledged and removed from queue
+2026-05-17 23:36:38,000 - INFO - Consumer stopped by user
+2026-05-17 23:36:38,000 - INFO - Final stats: Processed=9 | Failed=3

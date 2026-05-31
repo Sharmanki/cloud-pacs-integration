@@ -1,0 +1,12 @@
+2026-05-17 23:43:41,891 - INFO - Transform request received
+2026-05-17 23:43:41,892 - INFO - Transformed: ANKIT KUMAR | male
+2026-05-17 23:45:19,856 - INFO - Transform and post request received
+2026-05-17 23:45:20,352 - ERROR - FHIR server error: 412
+2026-05-17 23:45:49,111 - INFO - Transform and post request received
+2026-05-17 23:45:49,661 - INFO - SUCCESS: 112315 | FHIR ID=132068678
+2026-05-17 23:48:59,915 - INFO - Transform and post request received
+2026-05-17 23:49:00,517 - ERROR - FHIR server error: 412
+2026-05-17 23:49:17,522 - INFO - Transform and post request received
+2026-05-17 23:49:18,034 - ERROR - FHIR server error: 412
+2026-05-17 23:49:31,324 - INFO - Transform and post request received
+2026-05-17 23:49:31,887 - INFO - SUCCESS: 12123345 | FHIR ID=132068681
